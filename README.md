@@ -45,3 +45,16 @@ spec:
       claimName: ceph-rbd-sc-pvc
 EOF
 ```
+Log in testing-ceph pod and download a file into the pvc:
+
+```
+kubectl exec -ti testing-ceph -- sh
+
+wget http://releases.ubuntu.com/jammy/ubuntu-22.04.4-live-server-amd64.iso -O /mnt/ceph_rbd/testing.iso
+```
+Monitor the ceph-mon:
+
+```
+ceph osd df
+```
+
